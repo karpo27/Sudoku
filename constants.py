@@ -1,0 +1,2 @@
+BASE = 3
+SIDE = BASE * BASE

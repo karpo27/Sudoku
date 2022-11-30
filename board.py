@@ -68,12 +68,3 @@ board = (
         " " + bot_line + "\n"
         ) * 3
 
-
-'''
-boards = " " + top_line + "\n"\
-        " " + v_line + "  {:^2}  " + v_line + "  {:^2}  " + v_line + "  {:^2}  " + v_line + "\n"\
-        " " + mid_left + h_line + mid_center + h_line + mid_center + h_line + mid_right + "\n"\
-        " " + v_line + "  {:^2}  " + v_line + "  {:^2}  " + v_line + "  {:^2}  " + v_line + "\n"\
-        " " + mid_left + h_line + mid_center + h_line + mid_center + h_line + mid_right + "\n"\
-        " " + v_line + "  {:^2}  " + v_line + "  {:^2}  " + v_line + "  {:^2}  " + v_line + "\n"\
-        " " + bot_left + h_line + bot_middle + h_line + bot_middle + h_line + bot_right + "\n"'''
