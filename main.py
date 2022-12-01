@@ -34,7 +34,7 @@ def start():
               "First choose a box. Grid is divided in 1-9 boxes.\n"
               f"{example_board_box}"
               "Then choose a cell in the box. Box is divided in 1-9 cells.\n"
-              f"{example_board_grid * 3}"
+              f"{example_board_grid}"
               "And finally select which number 1-9 you want yo put in each cell.\n"
               "Example:\n")
 
@@ -104,4 +104,3 @@ if __name__ == '__main__':
     start()
 
 
-print(board.format(*game_options))

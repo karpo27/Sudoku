@@ -16,13 +16,25 @@ def shuffle(s):
 
 
 def produce_random_board():
-    r_base = range(BASE)
-    rows = [g * BASE + r for g in shuffle(r_base) for r in shuffle(r_base)]
-    cols = [g * BASE + c for g in shuffle(r_base) for c in shuffle(r_base)]
+    rows = [g * BASE + r for g in shuffle(R_BASE) for r in shuffle(R_BASE)]
+    cols = [g * BASE + c for g in shuffle(R_BASE) for c in shuffle(R_BASE)]
     nums = shuffle(range(1, BASE * BASE + 1))
 
     # produce board using randomized baseline pattern
     random_board = [[nums[pattern(r, c)] for c in cols] for r in rows]
 
+    print(random_board)
+
+    empties = SQUARES * 3 // 4   # Remove 60 squares
+
+    for i in sample(range(SQUARES), empties):
+        random_board[i // SIDE][i % SIDE] = 0
+
+
+    numSize = len(str(SIDE))
     for line in random_board:
-        print(line)
+        print(*(f"{n or '.':{numSize}} " for n in line))
+
+
+produce_random_board()
+
