@@ -6,9 +6,6 @@ from random_board import *
 # Modules
 import time
 
-game_options = []
-while len(game_options) <= 81:
-    game_options.append("")
 
 av_options = []
 
@@ -67,27 +64,35 @@ def select_game_mode():
         print("Please select a valid option ")
         select_game_mode()
     else:
+        global game
         game = produce_random_board(game_mode)
         print(f"{board.format(*game)}")
+
+        for i in range(len(game)):
+            if game[i].isdigit():
+                av_options.append("X")
+            else:
+                av_options.append(" ")
+
         play_player()
 
 
 def play_player():
     p_choice = input("\n"
-                     f"Choose an empty cell from the grid {av_options}: ")
+                     f"Choose an empty cell from the grid: ")
 
     if p_choice in av_options:
         pass
         '''
         av_options.remove(p_choice)
-        game_options.pop(int(p_choice) - 1)
-        game_options.insert(int(p_choice) - 1, )'''
+        game.pop(int(p_choice) - 1)
+        game.insert(int(p_choice) - 1, )'''
     else:
         print("Please select a valid option ")
         play_player()
 
     time.sleep(0.1)
-    print(board.format(*game_options))
+    print(board.format(*game))
 
     play_player()
 
