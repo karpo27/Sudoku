@@ -81,6 +81,17 @@ def play_player():
     p_choice = input("\n"
                      f"Choose an empty cell from the grid: ")
 
+    p_choice_a = list(p_choice)
+    p_choice_val = []
+    for i in range(len(p_choice_a)):
+        if p_choice_a[i].isdigit():
+            p_choice_val.append(p_choice_a[i])
+
+    print(p_choice_val)
+    if len(p_choice_val) > 3:
+        print("Please select a valid option ")
+        play_player()
+
     if p_choice in av_options:
         pass
         '''
