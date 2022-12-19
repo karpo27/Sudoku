@@ -36,7 +36,8 @@ def start():
               "Then choose a cell in the box. Box is divided in 1-9 cells.\n"
               f"{example_board_grid}"
               "And finally select which number 1-9 you want yo put in each cell.\n"
-              "Example:\n")
+              "Example: 1 3 8\n"
+              f"{board.format(*EXAMPLE)}")
 
     select_name()
 
