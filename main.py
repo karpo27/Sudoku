@@ -48,9 +48,6 @@ def select_name():
                         "Player 1 please enter your name: ")
         if name_p1 == "":
             name_p1 = "Mysterious Guy"
-        else:
-            pass
-            # insert_player_name(name_p1)
 
         print(f"\n"
               f"Hello {name_p1}!")
@@ -62,23 +59,17 @@ def select_game_mode():
     global game_mode
     game_mode = input("\n"
                       "Please select the game mode:\n"
-                      "1- Easy\n" # 41 faltantes
-                      "2- Medium\n"
-                      "3- Hard\n")
+                      "1- Easy\n"       # 41 empties
+                      "2- Medium\n"     # 50 ?
+                      "3- Hard\n")      # 60 empties
 
     if game_mode not in ["1", "2", "3"]:
         print("Please select a valid option ")
         select_game_mode()
     else:
-        create_board(game_mode)
-
-
-def create_board(difficulty):
-    if difficulty == "1":
-        pass
-
-    print(board.format(*game_options))
-    play_player()
+        game = produce_random_board(game_mode)
+        print(f"{board.format(*game)}")
+        play_player()
 
 
 def play_player():
