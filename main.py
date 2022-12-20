@@ -91,7 +91,6 @@ def play_player():
             if p_choice_list[i] != "0":
                 p_choice_val.append(p_choice_list[i])
 
-    print(p_choice_val)
     if len(p_choice_val) != 3:
         print("Please select a valid option ")
         play_player()
@@ -116,32 +115,28 @@ def play_player():
 
             # Rows 7-9:
             elif 7 <= int(p_choice_val[0]) <= 9 and 1 <= int(p_choice_val[1]) <= 3:
-                position = 9 * 3 + 3 * (int(p_choice_val[0]) - 4) + (int(p_choice_val[1]) - 1)
+                position = 9 * 6 + 3 * (int(p_choice_val[0]) - 7) + (int(p_choice_val[1]) - 1)
             elif 7 <= int(p_choice_val[0]) <= 9 and 4 <= int(p_choice_val[1]) <= 6:
-                position = 9 * 4 + 3 * (int(p_choice_val[0]) - 4) + (int(p_choice_val[1]) - 4)
+                position = 9 * 7 + 3 * (int(p_choice_val[0]) - 7) + (int(p_choice_val[1]) - 4)
             elif 7 <= int(p_choice_val[0]) <= 9 and 7 <= int(p_choice_val[1]) <= 9:
-                position = 9 * 5 + 3 * (int(p_choice_val[0]) - 4) + (int(p_choice_val[1]) - 7)
+                position = 9 * 8 + 3 * (int(p_choice_val[0]) - 7) + (int(p_choice_val[1]) - 7)
 
-
-    print(position)
-    p_choice.pop(position - 1)
-    p_choice.insert(position - 1, p_choice_val[2])
-
-    '''
-    if p_choice in av_options:
-        pass
-        
-        av_options.remove(p_choice)
-        game.pop(int(p_choice) - 1)
-        game.insert(int(p_choice) - 1, )
-    else:
+    if av_options[position] == "X":
         print("Please select a valid option ")
         play_player()
 
+    print(position)
+    game.pop(position)
+    game.insert(position, p_choice_val[2])
+
     time.sleep(0.1)
     print(board.format(*game))
+    check_win()
+    play_player()
 
-    play_player()'''
+
+def check_win():
+    pass
 
 
 if __name__ == '__main__':
