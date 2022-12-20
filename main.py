@@ -8,6 +8,9 @@ import time
 
 
 av_options = []
+p_choice = []
+for p in range(0, 81):
+    p_choice.append("")
 
 
 def start():
@@ -78,26 +81,59 @@ def select_game_mode():
 
 
 def play_player():
-    p_choice = input("\n"
-                     f"Choose an empty cell from the grid: ")
+    p_choice_input = input("\n"
+                           "Choose an empty cell from the grid: ")
 
-    p_choice_a = list(p_choice)
+    p_choice_list = list(p_choice_input)
     p_choice_val = []
-    for i in range(len(p_choice_a)):
-        if p_choice_a[i].isdigit():
-            p_choice_val.append(p_choice_a[i])
+    for i in range(len(p_choice_list)):
+        if p_choice_list[i].isdigit():
+            if p_choice_list[i] != "0":
+                p_choice_val.append(p_choice_list[i])
 
     print(p_choice_val)
-    if len(p_choice_val) > 3:
+    if len(p_choice_val) != 3:
         print("Please select a valid option ")
         play_player()
 
+    for i in range(len(p_choice_val)):
+        if i == 0:
+            # Rows 1-3:
+            if 1 <= int(p_choice_val[0]) <= 3 and 1 <= int(p_choice_val[1]) <= 3:
+                position = 3 * (int(p_choice_val[0]) - 1) + (int(p_choice_val[1]) - 1)
+            elif 1 <= int(p_choice_val[0]) <= 3 and 4 <= int(p_choice_val[1]) <= 6:
+                position = 9 + 3 * (int(p_choice_val[0]) - 1) + (int(p_choice_val[1]) - 4)
+            elif 1 <= int(p_choice_val[0]) <= 3 and 7 <= int(p_choice_val[1]) <= 9:
+                position = 9 * 2 + 3 * (int(p_choice_val[0]) - 1) + (int(p_choice_val[1]) - 7)
+
+            # Rows 4-6:
+            elif 4 <= int(p_choice_val[0]) <= 6 and 1 <= int(p_choice_val[1]) <= 3:
+                position = 9 * 3 + 3 * (int(p_choice_val[0]) - 4) + (int(p_choice_val[1]) - 1)
+            elif 4 <= int(p_choice_val[0]) <= 6 and 4 <= int(p_choice_val[1]) <= 6:
+                position = 9 * 4 + 3 * (int(p_choice_val[0]) - 4) + (int(p_choice_val[1]) - 4)
+            elif 4 <= int(p_choice_val[0]) <= 6 and 7 <= int(p_choice_val[1]) <= 9:
+                position = 9 * 5 + 3 * (int(p_choice_val[0]) - 4) + (int(p_choice_val[1]) - 7)
+
+            # Rows 7-9:
+            elif 7 <= int(p_choice_val[0]) <= 9 and 1 <= int(p_choice_val[1]) <= 3:
+                position = 9 * 3 + 3 * (int(p_choice_val[0]) - 4) + (int(p_choice_val[1]) - 1)
+            elif 7 <= int(p_choice_val[0]) <= 9 and 4 <= int(p_choice_val[1]) <= 6:
+                position = 9 * 4 + 3 * (int(p_choice_val[0]) - 4) + (int(p_choice_val[1]) - 4)
+            elif 7 <= int(p_choice_val[0]) <= 9 and 7 <= int(p_choice_val[1]) <= 9:
+                position = 9 * 5 + 3 * (int(p_choice_val[0]) - 4) + (int(p_choice_val[1]) - 7)
+
+
+    print(position)
+    p_choice.pop(position - 1)
+    p_choice.insert(position - 1, p_choice_val[2])
+
+    '''
     if p_choice in av_options:
         pass
-        '''
+        
         av_options.remove(p_choice)
         game.pop(int(p_choice) - 1)
-        game.insert(int(p_choice) - 1, )'''
+        game.insert(int(p_choice) - 1, )
     else:
         print("Please select a valid option ")
         play_player()
@@ -105,7 +141,7 @@ def play_player():
     time.sleep(0.1)
     print(board.format(*game))
 
-    play_player()
+    play_player()'''
 
 
 if __name__ == '__main__':
