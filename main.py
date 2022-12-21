@@ -158,15 +158,25 @@ def check_win():
             else:
                 c_2 += 1
 
+    # Block check
+    for n in range(0, len(game) + 1, 27):
+        for m in range(n, n + 9, 3):
+            if m < 81:
+                check_3 = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+                for x in range(m, m + 3):
+                    for y in range(0, 19, 9):
+                        if game[x + y] in check_3:
+                            check_3.remove(game[x + y])
+                        else:
+                            c_3 += 1
 
-    print(c_2)
+    print(c_3)
     if c_1 + c_2 + c_3 == 0:
         win_message()
 
 
 def win_message():
     print("win")
-
 
 
 if __name__ == '__main__':
