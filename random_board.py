@@ -43,9 +43,3 @@ def produce_random_board(game_mode):
                 random_board_list.append(str(random_board[i][j]))
 
     return random_board_list
-
-
-'''
-num_size = len(str(SIDE))
-    for line in random_board:
-        print(*(f"{n or '.':{num_size}} " for n in line))'''

@@ -82,7 +82,7 @@ def select_game_mode():
 
 def play_player():
     p_choice_input = input("\n"
-                           "Choose an empty cell from the grid: ")
+                           "Choose a cell from the grid and select a number 1-9 to put in: ")
 
     p_choice_list = list(p_choice_input)
     p_choice_val = []
@@ -125,18 +125,35 @@ def play_player():
         print("Please select a valid option ")
         play_player()
 
-    print(position)
     game.pop(position)
     game.insert(position, p_choice_val[2])
 
-    time.sleep(0.1)
+    time.sleep(0.25)
     print(board.format(*game))
     check_win()
     play_player()
 
 
 def check_win():
-    pass
+    c = 0
+    for i in range(0, len(game) + 1, 9):
+        if i != 0:
+            # Row check
+            check_1 = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+            for j in range(len(game[i - 9: i])):
+                if game[i - 9: i][j] in check_1:
+                    check_1.remove(game[i - 9: i][j])
+                else:
+                    c += 1
+
+    print(c)
+    if c == 0:
+        win_message()
+
+
+def win_message():
+    print("win")
+
 
 
 if __name__ == '__main__':
