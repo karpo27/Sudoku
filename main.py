@@ -135,19 +135,32 @@ def play_player():
 
 
 def check_win():
-    c = 0
+    c_1 = 0
+    c_2 = 0
+    c_3 = 0
+
+    # Row check
     for i in range(0, len(game) + 1, 9):
         if i != 0:
-            # Row check
             check_1 = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
             for j in range(len(game[i - 9: i])):
                 if game[i - 9: i][j] in check_1:
                     check_1.remove(game[i - 9: i][j])
                 else:
-                    c += 1
+                    c_1 += 1
 
-    print(c)
-    if c == 0:
+    # Column check
+    for k in range(len(game[: 9])):
+        check_2 = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+        for z in range(0, 73, 9):
+            if game[k + z] in check_2:
+                check_2.remove(game[k + z])
+            else:
+                c_2 += 1
+
+
+    print(c_2)
+    if c_1 + c_2 + c_3 == 0:
         win_message()
 
 
