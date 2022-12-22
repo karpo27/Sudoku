@@ -15,6 +15,8 @@ for p in range(0, 81):
 
 
 def start():
+    create_table()
+
     print("\n"
           "Welcome to Sudoku game!\n"
           "")
