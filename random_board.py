@@ -6,12 +6,12 @@ from board import *
 from random import sample
 
 
-# pattern for a baseline valid solution
+# Pattern for a baseline valid solution
 def pattern(r, c):
     return (BASE * (r % BASE) + r // BASE + c) % SIDE
 
 
-# randomize rows, columns and numbers (of valid base pattern)
+# Randomize rows, columns and numbers (of valid base pattern)
 def shuffle(s):
     return sample(s, len(s))
 
@@ -21,7 +21,7 @@ def produce_random_board(game_mode):
     cols = [g * BASE + c for g in shuffle(R_BASE) for c in shuffle(R_BASE)]
     nums = shuffle(range(1, BASE * BASE + 1))
 
-    # produce board using randomized baseline pattern
+    # Produce board using randomized baseline pattern
     random_board = [[nums[pattern(r, c)] for c in cols] for r in rows]
 
     if game_mode == "1":
