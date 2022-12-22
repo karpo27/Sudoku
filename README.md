@@ -1,7 +1,7 @@
 # Sudoku
 Classic Sudoku game coded in Python
 
-
+![img.png](img.png)
 
 For playing you need to:
 
