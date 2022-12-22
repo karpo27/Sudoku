@@ -175,9 +175,6 @@ def check_win():
                         else:
                             c_3 += 1
 
-    print(c_1)
-    print(c_2)
-    print(c_3)
     if c_1 + c_2 + c_3 == 0:
         win_message()
 
@@ -223,5 +220,4 @@ def play_again():
 
 if __name__ == '__main__':
     start()
-
 
