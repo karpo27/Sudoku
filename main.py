@@ -170,13 +170,53 @@ def check_win():
                         else:
                             c_3 += 1
 
+    print(c_1)
+    print(c_2)
     print(c_3)
     if c_1 + c_2 + c_3 == 0:
         win_message()
 
 
 def win_message():
-    print("win")
+    player_win = "\n"\
+                 f"Congratulations {name_p1}!, you won the game!"
+    print(player_win)
+
+    play_again()
+
+
+def play_again():
+    av_options.clear()
+
+    final_choice = input("\n"
+                         "Do you want yo play again?\n"
+                         "1- Yes\n"
+                         "2- No, thanks!\n"
+                         "3- Show my score\n"
+                         "")
+
+    '''
+    if final_choice == "3":
+        show_data(name_p1)
+        show_data(name_p2)
+        play_again()
+            
+        else:
+            if name_p1 != "Mysterious Guy":
+                show_data(name_p1)
+                play_again()
+            elif name_p1 == "Mysterious Guy":
+                print("\n"
+                      "If you are playing nameless, you have no stats! ")
+                play_again()
+    elif final_choice == "1":
+        select_game_mode()
+    elif final_choice == "2":
+        exit()
+    else:
+        print("\n"
+              "Please select a valid option ")
+        play_again()'''
 
 
 if __name__ == '__main__':

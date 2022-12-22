@@ -25,9 +25,9 @@ def produce_random_board(game_mode):
     random_board = [[nums[pattern(r, c)] for c in cols] for r in rows]
 
     if game_mode == "1":
-        empties = SQUARES * 3 // 4  # Remove 41 squares
+        empties = SQUARES * 2 // 4  # Remove 40 squares
     elif game_mode == "2":
-        empties = SQUARES * 3 // 4  # Remove ? squares
+        empties = SQUARES * 2 // 3  # Remove 54 squares
     else:
         empties = SQUARES * 3 // 4   # Remove 60 squares
 
