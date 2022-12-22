@@ -2,6 +2,7 @@
 from board import *
 from constants import *
 from random_board import *
+from score_db import *
 
 # Modules
 import time
@@ -48,6 +49,8 @@ def select_name():
                         "Player 1 please enter your name: ")
         if name_p1 == "":
             name_p1 = "Mysterious Guy"
+        else:
+            insert_player_name(name_p1)
 
         print(f"\n"
               f"Hello {name_p1}!")
@@ -59,8 +62,8 @@ def select_game_mode():
     global game_mode
     game_mode = input("\n"
                       "Please select the game mode:\n"
-                      "1- Easy\n"       # 41 empties
-                      "2- Medium\n"     # 50 ?
+                      "1- Easy\n"       # 40 empties
+                      "2- Medium\n"     # 54 empties
                       "3- Hard\n")      # 60 empties
 
     if game_mode not in ["1", "2", "3"]:
@@ -182,6 +185,9 @@ def win_message():
                  f"Congratulations {name_p1}!, you won the game!"
     print(player_win)
 
+    if name_p1 != "Mysterious Guy":
+        update_player_score(name_p1, game_mode)
+
     play_again()
 
 
@@ -195,20 +201,14 @@ def play_again():
                          "3- Show my score\n"
                          "")
 
-    '''
     if final_choice == "3":
-        show_data(name_p1)
-        show_data(name_p2)
-        play_again()
-            
-        else:
-            if name_p1 != "Mysterious Guy":
-                show_data(name_p1)
-                play_again()
-            elif name_p1 == "Mysterious Guy":
-                print("\n"
-                      "If you are playing nameless, you have no stats! ")
-                play_again()
+        if name_p1 != "Mysterious Guy":
+            show_data(name_p1)
+            play_again()
+        elif name_p1 == "Mysterious Guy":
+            print("\n"
+                  "If you are playing nameless, you have no stats! ")
+            play_again()
     elif final_choice == "1":
         select_game_mode()
     elif final_choice == "2":
@@ -216,7 +216,7 @@ def play_again():
     else:
         print("\n"
               "Please select a valid option ")
-        play_again()'''
+        play_again()
 
 
 if __name__ == '__main__':
