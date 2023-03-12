@@ -56,7 +56,7 @@ There are three difficulty modes to choose from:
 This game was written in Python 3, and makes use of the following modules:
 
 - random: Used for a short pause between moves to make the game feel more natural.
-- sqlite3: Used to save scores in a database based on player's name.
+- sqlite3: Used to save scores in a database based on player's name. The game automatically saves your progress, you can check your stats at any time.
 
 ## Contributing
 This project is open for contributions from anyone who wants to improve it. If you'd like to contribute, feel free to fork the repository, make your changes, and submit a pull request
