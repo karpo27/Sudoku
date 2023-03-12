@@ -12,7 +12,6 @@ Table of Contents:
 - [Installation](#Installation)
 - [Gameplay - Rules](#Gameplay---Rules)
 - [Modes](#Modes)
-- [Playing Against the Computer](#Playing-Against-the-Computer)
 - [Technologies Used](#Technologies-Used)
 - [Contributing](#Contributing)
 
@@ -52,16 +51,11 @@ There are three difficulty modes to choose from:
 - Easy
 - Medium
 - Hard
-- There is also a two-player mode that allows two human players to play against each other.
-
-## Playing Against the Computer
-When playing against the computer, the game uses an artificial intelligence (AI) algorithm to determine the computer's moves. The difficulty level of the AI can be adjusted by selecting a mode before starting the game. 
 
 ## Technologies Used
 This game was written in Python 3, and makes use of the following modules:
 
-- time: Used for a short pause between moves to make the game feel more natural.
-- secrets: Used to generate random AI moves in the easy and medium difficulty modes.
+- random: Used for a short pause between moves to make the game feel more natural.
 - sqlite3: Used to save scores in a database based on player's name.
 
 ## Contributing
@@ -70,6 +64,3 @@ This project is open for contributions from anyone who wants to improve it. If y
 Enjoy it!
 
 karpo27
-
-Enjoy!
-
