@@ -12,6 +12,7 @@ Table of Contents:
 - [Modes](#Modes)
 - [Technologies Used](#Technologies-Used)
 - [Contributing](#Contributing)
+- [How to reach me](#How-to-reach-me)
 
 ## Installation
 For playing you need to:
